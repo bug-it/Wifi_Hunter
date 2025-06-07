@@ -56,7 +56,7 @@ if ($senha) {
 
     # Conteúdo e caminho do arquivo
     $saida = "Rede: $rede`nSenha: $senha"
-    $nomeArquivo = "senha_$($rede.Replace(' ', '_')).txt"
+    $nomeArquivo = "WIFI_$($rede.Replace(' ', '_')).txt"
     $caminhoArquivo = Join-Path $diretorioScript $nomeArquivo
 
     $saida | Out-File -Encoding UTF8 -FilePath $caminhoArquivo
