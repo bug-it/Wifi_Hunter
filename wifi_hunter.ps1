@@ -27,7 +27,8 @@ if ($redes.Count -eq 0) {
     Write-Host ""
     Write-Host "╔════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║   Nenhuma rede Wi-Fi salva encontrada   ║" -ForegroundColor Yellow
-    Write-Host "╚════════════════════════════════════╝`n" -ForegroundColor Cyan
+    Write-Host "╚════════════════════════════════════╝" -ForegroundColor Cyan
+    pause
     exit
 }
 
@@ -35,7 +36,8 @@ if ($redes.Count -eq 0) {
 Write-Host ""
 Write-Host "╔════════════════════════════════════╗" -ForegroundColor Cyan
 Write-Host "║         Redes Wi-Fi Salvas         ║" -ForegroundColor Cyan
-Write-Host "╚════════════════════════════════════╝`n" -ForegroundColor Cyan
+Write-Host "╚════════════════════════════════════╝" -ForegroundColor Cyan
+Write-Host ""
 
 for ($i = 0; $i -lt $redes.Count; $i++) {
     Write-Host "$($i+1). $($redes[$i])" -ForegroundColor Green
@@ -46,7 +48,11 @@ $escolha = Read-Host "`nDigite o número da rede para ver a senha"
 
 # Validação
 if ($escolha -notmatch '^\d+$' -or [int]$escolha -lt 1 -or [int]$escolha -gt $redes.Count) {
-    Write-Host "`n❌ Número inválido." -ForegroundColor Red
+    Write-Host ""
+    Write-Host "╔════════════════════════════════════╗" -ForegroundColor Cyan
+    Write-Host "║          ❌ Número inválido         ║" -ForegroundColor Red
+    Write-Host "╚════════════════════════════════════╝" -ForegroundColor Cyan
+    pause
     exit
 }
 
@@ -62,7 +68,7 @@ $senha = ($detalhes | Select-String "Conteúdo da Chave" | ForEach-Object {
 if ($senha) {
     Write-Host ""
     Write-Host "╔════════════════════════════════════╗" -ForegroundColor Cyan
-    Write-Host "║  🔐 Senha da Rede Selecionada       ║" -ForegroundColor Cyan
+    Write-Host "║          Rede Selecionada          ║" -ForegroundColor Cyan
     Write-Host "╚════════════════════════════════════╝" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "Rede: $rede" -ForegroundColor Green
@@ -75,8 +81,17 @@ if ($senha) {
 
     $saida | Out-File -Encoding UTF8 -FilePath $caminhoArquivo
 
-    Write-Host "`n💾 Arquivo salvo em: $caminhoArquivo" -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "╔════════════════════════════════════╗" -ForegroundColor Cyan
+    Write-Host "║      Arquivo salvo com sucesso     ║" -ForegroundColor Cyan
+    Write-Host "╚════════════════════════════════════╝" -ForegroundColor Cyan
+    Write-Host "`nCaminho: $caminhoArquivo" -ForegroundColor Yellow
+    Write-Host ""
 } else {
     Write-Host ""
-    Write-Host "❌ Senha não encontrada para '$rede'." -ForegroundColor Red
+    Write-Host "╔════════════════════════════════════╗" -ForegroundColor Red
+    Write-Host "║         Senha não encontrada       ║" -ForegroundColor Red
+    Write-Host "╚════════════════════════════════════╝" -ForegroundColor Red
+    Write-Host ""
 }
+pause
