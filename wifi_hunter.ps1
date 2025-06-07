@@ -1,6 +1,19 @@
 # Força UTF-8 para acentuação correta
 $OutputEncoding = [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
+# Banner ASCII
+Write-Host ""
+Write-Host "██╗    ██╗██╗███████╗██╗    ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ " -ForegroundColor Cyan
+Write-Host "██║    ██║██║██╔════╝██║    ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗" -ForegroundColor Cyan
+Write-Host "██║ █╗ ██║██║█████╗  ██║    ███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝" -ForegroundColor Cyan
+Write-Host "██║███╗██║██║██╔══╝  ██║    ██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗" -ForegroundColor Cyan
+Write-Host "╚███╔███╔╝██║██║     ██║    ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║" -ForegroundColor Cyan
+Write-Host " ╚══╝╚══╝ ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "                                                        Desenvolvido por: BUG IT" -ForegroundColor Green
+Write-Host ""
+Write-Host ""
+
 # Pega o diretório onde o script está sendo executado
 $diretorioScript = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
@@ -51,9 +64,10 @@ if ($senha) {
     Write-Host "╔════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║  🔐 Senha da Rede Selecionada       ║" -ForegroundColor Cyan
     Write-Host "╚════════════════════════════════════╝" -ForegroundColor Cyan
+    Write-Host ""
     Write-Host "Rede: $rede" -ForegroundColor Green
     Write-Host "Senha: $senha" -ForegroundColor Green
-
+    Write-Host ""
     # Conteúdo e caminho do arquivo
     $saida = "Rede: $rede`nSenha: $senha"
     $nomeArquivo = "WIFI_$($rede.Replace(' ', '_')).txt"
@@ -61,7 +75,7 @@ if ($senha) {
 
     $saida | Out-File -Encoding UTF8 -FilePath $caminhoArquivo
 
-    Write-Host "`n💾 Arquivo salvo em: $caminhoArquivo" -ForegroundColor Cyan
+    Write-Host "`n💾 Arquivo salvo em: $caminhoArquivo" -ForegroundColor Yellow
 } else {
     Write-Host ""
     Write-Host "❌ Senha não encontrada para '$rede'." -ForegroundColor Red
