@@ -1,13 +1,9 @@
 # Banner ASCII
-Write-Host ""
-Write-Host "██╗    ██╗██╗███████╗██╗    ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ " -ForegroundColor Cyan
-Write-Host "██║    ██║██║██╔════╝██║    ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗" -ForegroundColor Cyan
-Write-Host "██║ █╗ ██║██║█████╗  ██║    ███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝" -ForegroundColor Cyan
-Write-Host "██║███╗██║██║██╔══╝  ██║    ██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗" -ForegroundColor Cyan
-Write-Host "╚███╔███╔╝██║██║     ██║    ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║" -ForegroundColor Cyan
-Write-Host " ╚══╝╚══╝ ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝" -ForegroundColor Cyan
-Write-Host ""
-Write-Host "                                                        Desenvolvido por: BUG IT" -ForegroundColor Green
+Write-Host "+==========================================+" -ForegroundColor Cyan
+Write-Host "+               WIFI HUNTER                +" -ForegroundColor Cyan
+Write-Host "+==========================================+" -ForegroundColor Cyan
+Write-Host "+        Desenvolvido por: BUG IT          +" -ForegroundColor Green
+Write-Host "+==========================================+" -ForegroundColor Cyan
 Write-Host ""
 Write-Host ""
 
@@ -23,7 +19,7 @@ $redes = $perfLines | ForEach-Object { ($_ -split ":")[1].Trim() }
 if ($redes.Count -eq 0) {
     Write-Host ""
     Write-Host "+==========================================+" -ForegroundColor Cyan
-    Write-Host "+   Nenhuma rede Wi-Fi salva encontrada    +" -ForegroundColor Yellow
+    Write-Host "+   Nenhuma rede Wi-Fi salva encontrada    +" -ForegroundColor Cyan
     Write-Host "+==========================================+" -ForegroundColor Cyan
     pause
     exit
@@ -46,9 +42,9 @@ $escolha = Read-Host "`nDigite o número da rede para ver a senha"
 # Validação
 if ($escolha -notmatch '^\d+$' -or [int]$escolha -lt 1 -or [int]$escolha -gt $redes.Count) {
     Write-Host ""
-    Write-Host "+======================================+" -ForegroundColor Cyan
+    Write-Host "+======================================+" -ForegroundColor Red
     Write-Host "+             Número inválido          +" -ForegroundColor Red
-    Write-Host "+======================================+" -ForegroundColor Cyan
+    Write-Host "+======================================+" -ForegroundColor Red
     pause
     exit
 }
