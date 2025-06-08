@@ -1,8 +1,8 @@
-# Banner ASCII
+# Banner
 Write-Host "+==========================================+" -ForegroundColor Cyan
 Write-Host "+               WIFI HUNTER                +" -ForegroundColor Cyan
 Write-Host "+==========================================+" -ForegroundColor Cyan
-Write-Host "+        Desenvolvido por: BUG IT          +" -ForegroundColor Green
+Write-Host "+        Desenvolvido por: BUG IT          +" -ForegroundColor Cyan
 Write-Host "+==========================================+" -ForegroundColor Cyan
 Write-Host ""
 Write-Host ""
@@ -27,9 +27,9 @@ if ($redes.Count -eq 0) {
 
 # Exibe as redes disponíveis
 Write-Host ""
-Write-Host "+====================================+" -ForegroundColor Cyan
-Write-Host "+         Redes Wi-Fi Salvas         +" -ForegroundColor Cyan
-Write-Host "+====================================+" -ForegroundColor Cyan
+Write-Host "+==========================================+" -ForegroundColor Cyan
+Write-Host "+            Redes Wi-Fi Salvas            +" -ForegroundColor Cyan
+Write-Host "+==========================================+" -ForegroundColor Cyan
 Write-Host ""
 
 for ($i = 0; $i -lt $redes.Count; $i++) {
@@ -43,7 +43,7 @@ $escolha = Read-Host "`nDigite o número da rede para ver a senha"
 if ($escolha -notmatch '^\d+$' -or [int]$escolha -lt 1 -or [int]$escolha -gt $redes.Count) {
     Write-Host ""
     Write-Host "+======================================+" -ForegroundColor Red
-    Write-Host "+             Número inválido          +" -ForegroundColor Red
+    Write-Host "+             Numero Invalido          +" -ForegroundColor Red
     Write-Host "+======================================+" -ForegroundColor Red
     pause
     exit
@@ -60,9 +60,9 @@ $senha = ($detalhes | Select-String "Conteúdo da Chave" | ForEach-Object {
 # Exibe e salva
 if ($senha) {
     Write-Host ""
-    Write-Host "+====================================+" -ForegroundColor Cyan
-    Write-Host "+           Rede Selecionada         +" -ForegroundColor Cyan
-    Write-Host "+====================================+" -ForegroundColor Cyan
+    Write-Host "+======================================+" -ForegroundColor Cyan
+    Write-Host "+            Rede Selecionada          +" -ForegroundColor Cyan
+    Write-Host "+======================================+" -ForegroundColor Cyan
     Write-Host ""
     Write-Host "Rede: $rede" -ForegroundColor Green
     Write-Host "Senha: $senha" -ForegroundColor Green
@@ -75,16 +75,17 @@ if ($senha) {
     $saida | Out-File -Encoding UTF8 -FilePath $caminhoArquivo
 
     Write-Host ""
-    Write-Host "+====================================+" -ForegroundColor Cyan
-    Write-Host "+      Arquivo salvo com sucesso     +" -ForegroundColor Cyan
-    Write-Host "+====================================+" -ForegroundColor Cyan
+    Write-Host "+======================================+" -ForegroundColor Cyan
+    Write-Host "+      Arquivo salvo com sucesso       +" -ForegroundColor Cyan
+    Write-Host "+======================================+" -ForegroundColor Cyan
     Write-Host "`nCaminho: $caminhoArquivo" -ForegroundColor Yellow
     Write-Host ""
 } else {
     Write-Host ""
-    Write-Host "+====================================+" -ForegroundColor Red
-    Write-Host "+         Senha não encontrada       +" -ForegroundColor Red
-    Write-Host "+====================================+" -ForegroundColor Red
+    Write-Host "+======================================+" -ForegroundColor Red
+    Write-Host "+         Senha nao encontrada         +" -ForegroundColor Red
+    Write-Host "+======================================+" -ForegroundColor Red
     Write-Host ""
 }
+
 pause
