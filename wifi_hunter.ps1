@@ -1,7 +1,7 @@
 ﻿# Banner
-Write-Host "+==========================================+" -ForegroundColor Cyan
-Write-Host "+            WIFI HUNTER -BUG IT           +" -ForegroundColor Cyan
-Write-Host "+==========================================+" -ForegroundColor Cyan
+Write-Host "+==========================================+" -ForegroundColor Yellow
+Write-Host "+            WIFI HUNTER -BUG IT           +" -ForegroundColor Yellow
+Write-Host "+==========================================+" -ForegroundColor Yellow
 Write-Host ""
 
 # Pega o diretório onde o script está sendo executado
