@@ -1,10 +1,7 @@
 # Banner
 Write-Host "+==========================================+" -ForegroundColor Cyan
-Write-Host "+               WIFI HUNTER                +" -ForegroundColor Cyan
+Write-Host "+            WIFI HUNTER -BUG IT           +" -ForegroundColor Cyan
 Write-Host "+==========================================+" -ForegroundColor Cyan
-Write-Host "+        Desenvolvido por: BUG IT          +" -ForegroundColor Cyan
-Write-Host "+==========================================+" -ForegroundColor Cyan
-Write-Host ""
 Write-Host ""
 
 # Pega o diretório onde o script está sendo executado
@@ -66,7 +63,6 @@ if ($senha) {
     Write-Host ""
     Write-Host "Rede: $rede" -ForegroundColor Green
     Write-Host "Senha: $senha" -ForegroundColor Green
-    Write-Host ""
     # Conteúdo e caminho do arquivo
     $saida = "Rede: $rede`nSenha: $senha"
     $nomeArquivo = "WIFI_$($rede.Replace(' ', '_')).txt"
